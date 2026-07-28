@@ -1,4 +1,4 @@
-// ===== THEME (selon les préférences système de l'utilisateur) =====
+// ===== THEME =====
 
 const themeBtn = document.getElementById("theme-btn");
 
@@ -7,17 +7,13 @@ function applyTheme(isLight) {
     themeBtn.textContent = isLight ? "☀️" : "🌙";
 }
 
-// Détecte la préférence système au chargement
 const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
 applyTheme(prefersLight);
 
-// Permet aussi de forcer le changement manuellement au clic
 themeBtn.addEventListener("click", () => {
-    const isCurrentlyLight = document.body.classList.contains("light");
-    applyTheme(!isCurrentlyLight);
+    applyTheme(!document.body.classList.contains("light"));
 });
 
-// Suit les changements de préférence système en direct
 window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
     applyTheme(e.matches);
 });
@@ -33,7 +29,7 @@ menuBtn.addEventListener("click", () => {
 });
 
 
-// ===== NAVIGATION ENTRE LES PAGES =====
+// ===== NAVIGATION ENTRE LES 3 PAGES (Galerie / À propos / Contact) =====
 
 const menuLinks = document.querySelectorAll(".menu-link");
 const pages = document.querySelectorAll(".page");
@@ -41,26 +37,25 @@ const pages = document.querySelectorAll(".page");
 menuLinks.forEach(link => {
     link.addEventListener("click", () => {
         const targetId = link.getAttribute("data-page");
+        const target = document.getElementById(targetId);
 
-        pages.forEach(page => {
-            page.classList.remove("active");
-        });
+        pages.forEach(page => page.classList.remove("active"));
 
-        document.getElementById(targetId).classList.add("active");
+        // force le redémarrage de l'animation de glissement à chaque clic
+        void target.offsetWidth;
+        target.classList.add("active");
 
-        // Ferme le menu après avoir choisi une option
         menu.classList.remove("open");
     });
 });
 
 
-// ===== VIEWER (zoom fluide sur les images de la galerie) =====
+// ===== VIEWER (zoom fluide sur les images) =====
 
 const viewer = document.getElementById("viewer");
 const viewerImg = document.getElementById("viewer-img");
-const artImages = document.querySelectorAll(".art");
 
-artImages.forEach(art => {
+document.querySelectorAll(".art").forEach(art => {
     if (art.tagName === "IMG") {
         art.addEventListener("click", () => {
             viewerImg.src = art.src;
