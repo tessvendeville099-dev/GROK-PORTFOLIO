@@ -53,8 +53,9 @@ body {
 
 .hero-header h1 {
     color: white;
-    font-size: 80px;
-    letter-spacing: 12px;
+    font-size: 48px;
+    letter-spacing: 10px;
+    text-align: center;
     z-index: 2;
 }
 
@@ -71,11 +72,12 @@ body {
     position: absolute;
     top: 30px;
     left: 30px;
-    font-size: 30px;
+    font-size: 42px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
+    line-height: 1;
     z-index: 5;
 }
 
@@ -94,7 +96,7 @@ body {
 
 nav {
     position: absolute;
-    top: 80px;
+    top: 90px;
     left: 30px;
     display: flex;
     flex-direction: column;
@@ -207,21 +209,10 @@ video.art:hover {
     transform: none;
 }
 
-.small {
-    height:180px;
-}
-
-.big {
-    height:350px;
-}
-
-.vertical {
-    height:420px;
-}
-
-.horizontal {
-    height:230px;
-}
+.small { height:180px; }
+.big { height:350px; }
+.vertical { height:420px; }
+.horizontal { height:230px; }
 
 /* ===== IMAGE GRAND FORMAT ===== */
 
@@ -243,14 +234,8 @@ video.art:hover {
 }
 
 @keyframes zoom {
-from {
-transform:scale(0.5);
-opacity:0;
-}
-to {
-transform:scale(1);
-opacity:1;
-}
+from { transform:scale(0.5); opacity:0; }
+to { transform:scale(1); opacity:1; }
 }
 
 /* ===== CONTACT ===== */
