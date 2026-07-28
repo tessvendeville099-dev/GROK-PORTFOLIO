@@ -1,7 +1,9 @@
 function showPage(id) {
+    alert("ça marche : " + id);
     document.querySelectorAll(".page").forEach(page => {
         page.classList.remove("active");
     });
+    ...
 
     const target = document.getElementById(id);
     void target.offsetWidth; // relance l'animation à chaque clic
