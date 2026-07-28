@@ -4,16 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AKATE - Portfolio</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
-
 <body>
-
 
 <header class="hero-header">
 
@@ -25,48 +20,22 @@
         Digital Artist • Illustration • Animation
     </p>
 
-
-    <button id="menu-btn" aria-label="Ouvrir le menu">
-        ☰
-    </button>
-
+    <button id="menu-btn" onclick="toggleMenu()">☰</button>
 
     <nav id="menu">
-
-        <button class="menu-link" data-page="gallery">
-            Galerie
-        </button>
-
-        <button class="menu-link" data-page="about">
-            À propos
-        </button>
-
-        <button class="menu-link" data-page="contact">
-            Contact
-        </button>
-
+        <button class="menu-link" onclick="showPage('gallery')">Galerie</button>
+        <button class="menu-link" onclick="showPage('about')">À propos</button>
+        <button class="menu-link" onclick="showPage('contact')">Contact</button>
     </nav>
 
-
-    <button id="theme-btn" aria-label="Changer le thème">
-        🌙
-    </button>
-
+    <button id="theme-btn" onclick="toggleTheme()">🌙</button>
 
 </header>
 
-
-
 <main>
 
-
 <section id="home" class="page active">
-
-<h2>
-Bienvenue dans mon univers artistique
-</h2>
-
-
+<h2>Bienvenue dans mon univers artistique</h2>
 <p>
 Je crée des illustrations numériques,
 des animations et du dessin traditionnel.
@@ -74,83 +43,44 @@ Je réalise également des dessins réalistes
 et j'aime explorer différents styles
 pour donner vie à mes idées.
 </p>
-
-
 </section>
-
-
-
-
 
 <section id="gallery" class="page">
-
-
-<h2>
-Galerie
-</h2>
-
+<h2>Galerie</h2>
 
 <h3 class="gallery-subtitle">Dessin traditionnel</h3>
-
 <div class="gallery">
-
-<img src="images/traditionnel1.jpg" class="art small">
-<img src="images/traditionnel2.jpg" class="art big">
-<img src="images/traditionnel3.jpg" class="art vertical">
-<img src="images/traditionnel4.jpg" class="art horizontal">
-<img src="images/traditionnel5.jpg" class="art small">
-<img src="images/traditionnel6.jpg" class="art big">
-<img src="images/traditionnel7.jpg" class="art vertical">
-<img src="images/traditionnel8.jpg" class="art horizontal">
-
+<img src="images/traditionnel1.jpg" class="art small" onclick="openViewer(this)">
+<img src="images/traditionnel2.jpg" class="art big" onclick="openViewer(this)">
+<img src="images/traditionnel3.jpg" class="art vertical" onclick="openViewer(this)">
+<img src="images/traditionnel4.jpg" class="art horizontal" onclick="openViewer(this)">
+<img src="images/traditionnel5.jpg" class="art small" onclick="openViewer(this)">
+<img src="images/traditionnel6.jpg" class="art big" onclick="openViewer(this)">
+<img src="images/traditionnel7.jpg" class="art vertical" onclick="openViewer(this)">
+<img src="images/traditionnel8.jpg" class="art horizontal" onclick="openViewer(this)">
 </div>
-
 
 <h3 class="gallery-subtitle">Digital</h3>
-
 <div class="gallery">
-
-<img src="images/digital1.jpg" class="art big">
-<img src="images/digital2.jpg" class="art vertical">
-<img src="images/digital3.jpg" class="art small">
-<img src="images/digital4.jpg" class="art horizontal">
-
+<img src="images/digital1.jpg" class="art big" onclick="openViewer(this)">
+<img src="images/digital2.jpg" class="art vertical" onclick="openViewer(this)">
+<img src="images/digital3.jpg" class="art small" onclick="openViewer(this)">
+<img src="images/digital4.jpg" class="art horizontal" onclick="openViewer(this)">
 </div>
-
 
 <h3 class="gallery-subtitle">Animation</h3>
-
 <div class="gallery">
-
 <video src="images/animation1.mp4" class="art big" controls></video>
-
 </div>
 
-
-<div id="viewer">
-
+<div id="viewer" onclick="closeViewer()">
 <img id="viewer-img">
-
 </div>
-
-
 </section>
 
-
-
-
-
-
 <section id="about" class="page">
-
-
-<h2>
-À propos
-</h2>
-
-
+<h2>À propos</h2>
 <p>
-
 Je suis une artiste passionnée par la création.
 Je fais de l'illustration, de l'animation,
 du dessin traditionnel, du réalisme,
@@ -159,52 +89,22 @@ le crochet et différents projets créatifs.
 
 J'aime expérimenter plusieurs domaines
 et créer des univers personnels.
-
 </p>
-
-
 </section>
 
-
-
-
-
-
-
 <section id="contact" class="page">
-
-
-<h2>
-Contact
-</h2>
-
-
-<p>
-Pour suivre mes créations :
-</p>
-
-
+<h2>Contact</h2>
+<p>Pour suivre mes créations :</p>
 <a class="instagram"
 href="https://www.instagram.com/akatessticrousty?igsh=aXBsNG13dHUwdDNp&utm_source=qr"
 target="_blank">
-
 Instagram : @akatessticrousty
-
 </a>
-
-
 </section>
-
 
 </main>
 
-
-
-
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
