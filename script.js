@@ -1,69 +1,30 @@
-// ===== THEME =====
+function showPage(id) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
 
-const themeBtn = document.getElementById("theme-btn");
+    const target = document.getElementById(id);
+    void target.offsetWidth; // relance l'animation à chaque clic
+    target.classList.add("active");
 
-function applyTheme(isLight) {
-    document.body.classList.toggle("light", isLight);
-    themeBtn.textContent = isLight ? "☀️" : "🌙";
+    document.getElementById("menu").classList.remove("open");
 }
 
-const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-applyTheme(prefersLight);
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("open");
+}
 
-themeBtn.addEventListener("click", () => {
-    applyTheme(!document.body.classList.contains("light"));
-});
+function toggleTheme() {
+    const body = document.body;
+    const isLight = body.classList.toggle("light");
+    document.getElementById("theme-btn").textContent = isLight ? "☀️" : "🌙";
+}
 
-window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
-    applyTheme(e.matches);
-});
+function openViewer(img) {
+    document.getElementById("viewer-img").src = img.src;
+    document.getElementById("viewer").style.display = "flex";
+}
 
-
-// ===== MENU =====
-
-const menuBtn = document.getElementById("menu-btn");
-const menu = document.getElementById("menu");
-
-menuBtn.addEventListener("click", () => {
-    menu.classList.toggle("open");
-});
-
-
-// ===== NAVIGATION ENTRE LES 3 PAGES (Galerie / À propos / Contact) =====
-
-const menuLinks = document.querySelectorAll(".menu-link");
-const pages = document.querySelectorAll(".page");
-
-menuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        const targetId = link.getAttribute("data-page");
-        const target = document.getElementById(targetId);
-
-        pages.forEach(page => page.classList.remove("active"));
-
-        // force le redémarrage de l'animation de glissement à chaque clic
-        void target.offsetWidth;
-        target.classList.add("active");
-
-        menu.classList.remove("open");
-    });
-});
-
-
-// ===== VIEWER (zoom fluide sur les images) =====
-
-const viewer = document.getElementById("viewer");
-const viewerImg = document.getElementById("viewer-img");
-
-document.querySelectorAll(".art").forEach(art => {
-    if (art.tagName === "IMG") {
-        art.addEventListener("click", () => {
-            viewerImg.src = art.src;
-            viewer.style.display = "flex";
-        });
-    }
-});
-
-viewer.addEventListener("click", () => {
-    viewer.style.display = "none";
-});
+function closeViewer() {
+    document.getElementById("viewer").style.display = "none";
+}
